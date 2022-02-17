@@ -9,8 +9,7 @@ import { BehaviorService } from './behavior-service.service';
 export class BehaviorSubjectTestComponent implements OnInit {
 
   data: any;
-  constructor(private service : BehaviorService,
-    private zone: NgZone){}
+  constructor(private service : BehaviorService){}
 
   ngOnInit(){
     this.getObs();
