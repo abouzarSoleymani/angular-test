@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { FormCvaTestComponent } from './form-cva-test.component';
@@ -7,7 +7,7 @@ import { InputTestComponent } from './input-test/input-test.component';
     let component: InputTestComponent;
     let fixture: ComponentFixture<FormCvaTestComponent>;
 
-    beforeEach(async(() => {
+    beforeEach(waitForAsync(() => {
       TestBed.configureTestingModule({
         declarations: [InputTestComponent, FormCvaTestComponent],
         imports: [ReactiveFormsModule]
@@ -22,5 +22,10 @@ import { InputTestComponent } from './input-test/input-test.component';
 
     it('should create', () => {
       expect(component).toBeTruthy();
+    });
+    it('Should make the name control required', () => {
+      const control = fixture.componentInstance.inputForm.get('input');
+      control?.setValue(null);
+      expect(control?.valid).toBeFalsy();
     });
 });

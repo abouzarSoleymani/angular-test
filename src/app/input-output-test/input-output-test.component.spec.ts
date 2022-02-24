@@ -37,11 +37,13 @@ describe('InputOutputTestComponent', () => {
     component.msg.subscribe(d => {
       emittedValue = d;
     });
-    spyOn(component.msg, 'emit').and.callThrough();
-    component.emitMessage();
-    //const button = fixture.nativeElement.querySelector('button');
+    /*-----------------or------------------*/
+   // spyOn(component.msg, 'emit').and.callThrough();
+   // expect(component.msg.emit).toHaveBeenCalledWith('This is emitted message');
+   //const button = fixture.nativeElement.querySelector('button');
    // button.click();
-    expect(component.msg.emit).toHaveBeenCalledWith('This is emitted message');
+   /*----------------------------*/
+    component.emitMessage();
     expect(emittedValue).toEqual('This is emitted message');
   });
 });

@@ -5,7 +5,7 @@ import { BasicValueAccessor } from '../basic-value-accessor';
 @Component({
   selector: 'app-input-test',
   templateUrl: './input-test.component.html',
-  styleUrls: ['./input-test.component.css'],
+  styleUrls: ['./input-test.component.scss'],
   providers: [{
     provide: NG_VALUE_ACCESSOR,
     useExisting: forwardRef(() => InputTestComponent),
